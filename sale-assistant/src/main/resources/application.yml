@@ -1,0 +1,34 @@
+server:
+  #端口号
+  port: 8888
+
+spring:
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jiaju?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  redis:
+    host: hadoop107
+    port: 6379
+    password: 123321
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+file:
+  upload_dir: E:\java_files\sale-assistant\src\main\resources\static\fengmian_pic\
+  upload_url: http://localhost:8888/uploads/
+
+my-setting:
+  maxDialog: 6  #AI销售员数量设置
+  maxDialogCount: 15    #对话总轮数
+  dialogRecordExpireTime: 5   #存在redis中的对话记录过期时间
+  tokenExpireTime: 2  #用户token过期时间
+  recordThreshold: 8  #总轮数超过多少轮对话才进行记录
